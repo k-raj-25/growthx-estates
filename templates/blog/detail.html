@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} — GrowthX Estates{% endblock %}
+{% block content %}
+    <main class="page-main blog-page blog-detail-page">
+      {% include "partials/page_decor_blog.html" %}
+      <article class="section blog-article">
+        <div class="section-inner blog-article-inner">
+          <header class="blog-article-header reveal">
+            <p class="eyebrow"><a href="{% url 'blog_list' %}">← Journal</a></p>
+            <h1 class="blog-article-title">{{ post.title }}</h1>
+            <p class="blog-article-meta">
+              <time datetime="{{ post.published_at|date:'c' }}">{{ post.published_at|date:"F j, Y" }}</time>
+              {% if post.author %}
+                <span class="blog-meta-sep">·</span>
+                <span>{{ post.author.get_username }}</span>
+              {% endif %}
+            </p>
+          </header>
+
+          {% if post.featured_image %}
+            <div class="blog-article-featured reveal">
+              <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" width="1200" height="675" loading="lazy" />
+            </div>
+          {% elif post.featured_image_url %}
+            <div class="blog-article-featured reveal">
+              <img src="{{ post.featured_image_url }}" alt="{{ post.title }}" width="1200" height="675" loading="lazy" />
+            </div>
+          {% endif %}
+
+          <div class="blog-article-body ck-content reveal">
+            {{ post.body|safe }}
+          </div>
+
+          <footer class="blog-article-footer reveal">
+            <a href="{% url 'blog_list' %}" class="btn btn-outline">All articles</a>
+          </footer>
+        </div>
+      </article>
+    </main>
+{% endblock %}

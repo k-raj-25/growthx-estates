@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Sitemap — GrowthX Estates{% endblock %}
+{% block content %}
+  <main class="page-main resources-doc-page">
+    {% include "partials/page_decor_resources.html" %}
+    <section class="section resources-doc-hero">
+      <div class="section-inner">
+        <nav class="props-breadcrumbs reveal" aria-label="Breadcrumb">
+          <a href="{% url 'index' %}">Home</a>
+          <span class="props-bc-sep" aria-hidden="true">/</span>
+          <span>Sitemap</span>
+        </nav>
+        <p class="eyebrow reveal">SITE MAP</p>
+        <h1 class="section-title reveal">Sitemap</h1>
+        <p class="resources-doc-lede reveal">
+          Quick links to every main section of the site.
+        </p>
+      </div>
+    </section>
+    <section class="section resources-doc-body">
+      <div class="section-inner">
+        <div class="sitemap-grid reveal">
+          <div class="sitemap-block">
+            <h2 class="sitemap-block-title">Main</h2>
+            <ul class="sitemap-links">
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'index' %}#services">Services</a></li>
+              <li><a href="{% url 'index' %}#stories">Client stories</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+          </div>
+          <div class="sitemap-block">
+            <h2 class="sitemap-block-title">Company</h2>
+            <ul class="sitemap-links">
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'about' %}#our-team">Team</a></li>
+              <li><a href="{% url 'careers' %}">Careers</a></li>
+              <li><a href="{% url 'awards_recognitions' %}">Awards &amp; recognitions</a></li>
+              <li><a href="{% url 'news_updates' %}">News &amp; updates</a></li>
+            </ul>
+          </div>
+          <div class="sitemap-block">
+            <h2 class="sitemap-block-title">Properties &amp; content</h2>
+            <ul class="sitemap-links">
+              <li><a href="{% url 'properties_list' %}">Properties</a></li>
+              <li><a href="{% url 'blog_list' %}">Blog</a></li>
+            </ul>
+          </div>
+          <div class="sitemap-block">
+            <h2 class="sitemap-block-title">Resources</h2>
+            <ul class="sitemap-links">
+              <li><a href="{% url 'support' %}">Support</a></li>
+              <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+              <li><a href="{% url 'terms' %}">Terms</a></li>
+              <li><a href="{% url 'site_sitemap' %}">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}

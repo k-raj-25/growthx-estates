@@ -1,0 +1,353 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Careers — GrowthX Estates{% endblock %}
+{% block content %}
+    <main class="page-main careers-page" data-hr-email="{{ hr_email }}">
+      {% include "partials/page_decor_careers.html" %}
+      <section class="section careers-hero">
+        <div class="section-inner careers-hero-grid">
+          <div class="careers-hero-copy">
+            <p class="eyebrow reveal">JOIN US</p>
+            <h1 class="section-title reveal">Build a career in exceptional real estate</h1>
+            <p class="careers-hero-tagline reveal">Where your judgment is trusted and your craft is visible.</p>
+            <p class="careers-intro reveal">
+              GrowthX Estates is a boutique luxury advisory. Curiosity, integrity, and client care matter as much as the
+              closing—we grow deliberately, and we hire people who raise the bar for everyone around them.
+            </p>
+            <ul class="careers-hero-highlights reveal" aria-label="What we offer">
+              <li class="careers-hero-highlight">
+                <span class="careers-hero-highlight-kicker">Mentorship</span>
+                <span class="careers-hero-highlight-text">Learn alongside senior advisors who share context, not just tasks.</span>
+              </li>
+              <li class="careers-hero-highlight">
+                <span class="careers-hero-highlight-kicker">Impact</span>
+                <span class="careers-hero-highlight-text">See your work on tours, decks, and deals clients remember.</span>
+              </li>
+              <li class="careers-hero-highlight">
+                <span class="careers-hero-highlight-kicker">Culture</span>
+                <span class="careers-hero-highlight-text">Discretion, preparation, and respect—non-negotiable here.</span>
+              </li>
+            </ul>
+            <div class="careers-hero-actions reveal">
+              <a href="#openings" class="btn btn-primary">View open roles</a>
+              <a href="#why-growthx" class="btn btn-secondary">Why GrowthX</a>
+            </div>
+          </div>
+          <div class="careers-hero-visual reveal">
+            <div class="careers-hero-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80"
+                alt="Colleagues collaborating in a bright modern office"
+                width="900"
+                height="1125"
+                loading="lazy"
+              />
+            </div>
+            <figure class="careers-hero-quote reveal">
+              <blockquote>
+                <p>We hire for character and judgment first—then we invest in the skills that make great advisors.</p>
+              </blockquote>
+              <figcaption>— People &amp; culture, GrowthX Estates</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section careers-company-section" id="why-growthx">
+        <div class="section-inner careers-why-split">
+          <div class="careers-why-visual reveal">
+            <div class="careers-why-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80"
+                alt="Minimal workspace with natural light"
+                width="900"
+                height="1050"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="careers-why-copy reveal">
+            <p class="eyebrow">WHY GROWTHX</p>
+            <h2 class="section-title">A place to do meaningful work</h2>
+            <p class="careers-company-lede">
+              We connect discerning clients with remarkable properties. That takes judgment, discretion, and teamwork—not
+              scripts, quotas, or volume for its own sake. You will sit alongside seasoned advisors and operators who share
+              real market context, mentor generously, and treat every file with respect.
+            </p>
+            <p class="careers-company-text">
+              Whether you are client-facing, behind the scenes in marketing or research, or joining us for a structured
+              internship, you will see how a values-led firm scales: through craft, clarity, and relationships that last
+              well beyond a single transaction.
+            </p>
+            <ul class="careers-why-pillars">
+              <li class="careers-why-pillar reveal">
+                <span class="careers-why-pillar-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                  </svg>
+                </span>
+                <div class="careers-why-pillar-body">
+                  <h3 class="careers-why-pillar-title">Real collaboration</h3>
+                  <p class="careers-why-pillar-text">
+                    Deal rooms, research huddles, and candid feedback—you are never siloed on an island.
+                  </p>
+                </div>
+              </li>
+              <li class="careers-why-pillar reveal">
+                <span class="careers-why-pillar-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M2 3h6a4 4 0 014 4v14a2 2 0 01-2-2H4a2 2 0 01-2-2V3z" />
+                    <path d="M22 3h-6a4 4 0 00-4 4v14a2 2 0 012-2h6a2 2 0 002-2V3z" />
+                  </svg>
+                </span>
+                <div class="careers-why-pillar-body">
+                  <h3 class="careers-why-pillar-title">Room to grow</h3>
+                  <p class="careers-why-pillar-text">
+                    Clear paths in advisory, operations, and leadership—plus training tuned to luxury practice.
+                  </p>
+                </div>
+              </li>
+              <li class="careers-why-pillar reveal">
+                <span class="careers-why-pillar-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 6v6l4 2" />
+                  </svg>
+                </span>
+                <div class="careers-why-pillar-body">
+                  <h3 class="careers-why-pillar-title">Sustainable pace</h3>
+                  <p class="careers-why-pillar-text">
+                    We protect quality over noise—fewer handoffs, better prep, and respect for your time off the clock.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-values-section careers-values-section">
+        <div class="section-inner">
+          <p class="eyebrow reveal">OUR VALUES</p>
+          <h2 class="section-title reveal">What we look for—and how we work</h2>
+          <ul class="about-values reveal">
+            <li class="about-value-card">
+              <h3 class="about-value-title">Integrity</h3>
+              <p class="about-value-text">Honest counsel, transparent process, and no shortcuts with clients or colleagues.</p>
+            </li>
+            <li class="about-value-card">
+              <h3 class="about-value-title">Excellence</h3>
+              <p class="about-value-text">Prepared tours, sharp materials, and execution you would stake your reputation on.</p>
+            </li>
+            <li class="about-value-card">
+              <h3 class="about-value-title">Respect</h3>
+              <p class="about-value-text">We protect client privacy, credit good ideas, and show up for each other.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section careers-openings-section" id="openings">
+        <div class="section-inner">
+          <p class="eyebrow reveal">OPEN ROLES</p>
+          <h2 class="section-title reveal">Current openings</h2>
+          {% if openings %}
+            {{ openings_payload|json_script:"careers-openings-data" }}
+            <div class="careers-openings-toolbar reveal">
+              {% if opening_departments %}
+                <div class="careers-openings-filter">
+                  <label class="careers-openings-filter-label" for="careers-department-filter">Department</label>
+                  <select
+                    id="careers-department-filter"
+                    class="properties-filter-select properties-filter-select--accent careers-department-select"
+                    aria-label="Filter openings by department"
+                  >
+                    <option value="">All departments</option>
+                    {% for dept in opening_departments %}
+                      <option value="{{ dept }}">{{ dept }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endif %}
+              <p class="careers-openings-count" id="careers-openings-count" aria-live="polite"></p>
+            </div>
+            <ul class="careers-openings-list" id="careers-openings-list">
+              {% for opening in openings %}
+                <li
+                  class="careers-opening-item reveal"
+                  data-opening-id="{{ opening.pk }}"
+                  data-department="{{ opening.department }}"
+                >
+                  <button
+                    type="button"
+                    class="careers-opening-card js-careers-opening-open"
+                    aria-haspopup="dialog"
+                    aria-expanded="false"
+                    aria-controls="careers-job-modal"
+                    data-opening-id="{{ opening.pk }}"
+                  >
+                    <span class="careers-opening-chevron" aria-hidden="true">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    <span class="careers-opening-card-inner">
+                      <span class="careers-opening-head">
+                        <span class="careers-opening-title">{{ opening.title }}</span>
+                        <span class="careers-opening-meta">
+                          {% if opening.department %}<span>{{ opening.department }}</span>{% endif %}
+                          {% if opening.location %}<span>{{ opening.location }}</span>{% endif %}
+                          <span>{{ opening.get_employment_type_display }}</span>
+                        </span>
+                      </span>
+                      <span class="careers-opening-desc">{{ opening.description|truncatewords:42 }}</span>
+                      <span class="careers-opening-tap-hint">View role details</span>
+                    </span>
+                  </button>
+                </li>
+              {% endfor %}
+            </ul>
+            <p class="careers-openings-filter-empty" id="careers-openings-filter-empty" hidden>
+              No roles in this department right now. Try another filter or check back soon.
+            </p>
+          {% else %}
+            <p class="careers-openings-empty">
+              There are no published openings right now. Check back soon—or send a general introduction to
+              <a class="careers-email-inline" href="mailto:{{ hr_email }}?subject={{ 'General inquiry — Careers'|urlencode }}">{{ hr_email }}</a>.
+            </p>
+          {% endif %}
+        </div>
+      </section>
+
+      <section class="section careers-apply-section">
+        <div class="section-inner reveal">
+          <div class="careers-apply-card">
+            <h2 class="careers-apply-title">How to apply</h2>
+            <p class="careers-apply-text">
+              We review every message thoughtfully. Attach your résumé (PDF preferred) and a short note on why GrowthX
+              and the role are a fit. Our talent team will reply if we would like to move forward.
+            </p>
+            <p class="careers-apply-email-label">Résumés and cover letters</p>
+            <a class="careers-apply-email" href="mailto:{{ hr_email }}?subject={{ 'Career application — GrowthX Estates'|urlencode }}">{{ hr_email }}</a>
+            <p class="careers-apply-note">Please do not include sensitive personal data beyond what is typical for a job application.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta-banner">
+        <div class="cta-card reveal">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <div class="cta-inner">
+            <h2 class="cta-title">
+              Questions before you <span class="text-gold">apply?</span>
+            </h2>
+            <p class="cta-sub">
+              Our main line is happy to route you to the right person—or visit our contact page for other ways to reach us.
+            </p>
+            <div class="cta-actions">
+              <a href="{% url 'contact' %}" class="btn btn-primary">Contact us</a>
+              <a href="{% url 'about' %}" class="btn btn-secondary">About the firm</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div
+      class="careers-job-modal"
+      id="careers-job-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="careers-job-modal-title"
+      hidden
+    >
+      <div class="careers-job-modal-backdrop js-careers-job-modal-dismiss" aria-hidden="true"></div>
+      <div class="careers-job-modal-panel" role="document">
+        <button
+          type="button"
+          class="careers-job-modal-close js-careers-job-modal-close"
+          aria-label="Close role details"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+        <div class="careers-job-modal-scroll">
+          <header class="careers-job-modal-header">
+            <div class="careers-job-modal-accent" aria-hidden="true"></div>
+            <p class="careers-job-modal-eyebrow" id="careers-job-modal-eyebrow">Role details</p>
+            <h2 class="careers-job-modal-title" id="careers-job-modal-title"></h2>
+            <div class="careers-job-modal-meta-chips" id="careers-job-modal-meta"></div>
+          </header>
+
+          <div class="careers-job-modal-sections">
+            <section class="careers-job-modal-section careers-job-modal-section--sheet" aria-labelledby="careers-job-modal-overview-h">
+              <div class="careers-job-modal-section-head">
+                <span class="careers-job-modal-section-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                    <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+                    <path d="M8 7h8M8 11h6" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <h3 class="careers-job-modal-section-title" id="careers-job-modal-overview-h">Overview</h3>
+              </div>
+              <div class="careers-job-modal-section-body careers-job-modal-prose" id="careers-job-modal-overview"></div>
+            </section>
+
+            <section class="careers-job-modal-section careers-job-modal-section--sheet" aria-labelledby="careers-job-modal-resp-h">
+              <div class="careers-job-modal-section-head">
+                <span class="careers-job-modal-section-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                    <path d="M9 11l3 3L22 4" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <h3 class="careers-job-modal-section-title" id="careers-job-modal-resp-h">Responsibilities</h3>
+              </div>
+              <div class="careers-job-modal-section-body careers-job-modal-body" id="careers-job-modal-responsibilities"></div>
+            </section>
+
+            <section class="careers-job-modal-section careers-job-modal-section--sheet" aria-labelledby="careers-job-modal-qual-h">
+              <div class="careers-job-modal-section-head">
+                <span class="careers-job-modal-section-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <h3 class="careers-job-modal-section-title" id="careers-job-modal-qual-h">Qualifications</h3>
+              </div>
+              <div class="careers-job-modal-section-body careers-job-modal-body" id="careers-job-modal-qualifications"></div>
+            </section>
+          </div>
+
+          <footer class="careers-job-modal-footer">
+            <div class="careers-job-modal-footer-glow" aria-hidden="true"></div>
+            <div class="careers-job-modal-footer-inner">
+              <p class="careers-job-modal-footer-lede">Ready to introduce yourself?</p>
+              <div class="careers-job-modal-actions">
+                <a class="btn btn-primary careers-job-modal-apply-btn" id="careers-job-modal-apply" href="#">
+                  <span class="careers-job-modal-apply-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16v16H4zM22 6l-10 7L2 6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  Apply by email
+                </a>
+                <button type="button" class="btn btn-secondary js-careers-job-modal-close">Close</button>
+              </div>
+              <p class="careers-job-modal-hr-note">
+                Résumé &amp; cover letter to
+                <a class="careers-job-modal-hr-link" id="careers-job-modal-hr-link" href="#"></a>
+              </p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+{% block extra_js %}
+    <script src="{% static 'js/careers.js' %}?v=20260405u" defer></script>
+{% endblock %}

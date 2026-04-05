@@ -1,0 +1,16 @@
+# Optional: connect repo in Render and use "Blueprint" to apply this file.
+# Or create a Web Service manually with the same build/start commands.
+services:
+  - type: web
+    name: real-estate-client1
+    runtime: python
+    plan: free
+    buildCommand: bash build.sh
+    startCommand: gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.8"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}News &amp; updates — GrowthX Estates{% endblock %}
+{% block content %}
+    <main class="page-main news-events-page">
+      {% include "partials/page_decor_news.html" %}
+      <section class="section news-events-hero">
+        <div class="section-inner news-events-hero-inner">
+          <p class="eyebrow reveal">STORIES &amp; MOMENTS</p>
+          <h1 class="section-title reveal">News &amp; updates</h1>
+          <p class="news-events-intro reveal">
+            Company news alongside highlights from launches, forums, and gatherings we are proud to be part of.
+          </p>
+        </div>
+      </section>
+
+      <section class="section news-events-list-section" aria-labelledby="news-updates-heading">
+        <div class="section-inner">
+          <h2 class="news-events-block-title reveal" id="news-updates-heading">News &amp; updates</h2>
+          {% include "partials/gallery_image_tiles.html" with items=news_items empty_message="No news images yet. Add published entries with images in the admin under “News & events gallery”, section “News & updates”." %}
+        </div>
+      </section>
+
+      <section class="section news-events-list-section news-events-list-section--events" aria-labelledby="events-highlights-heading">
+        <div class="section-inner">
+          <h2 class="news-events-block-title reveal" id="events-highlights-heading">Events highlights</h2>
+          {% include "partials/gallery_image_tiles.html" with items=event_items empty_message="No event highlights yet. Add published entries with images in the admin under “News & events gallery”, section “Events highlights”." %}
+        </div>
+      </section>
+    </main>
+
+    <div
+      class="award-lightbox"
+      id="award-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Enlarged image"
+      hidden
+    >
+      <div class="award-lightbox-backdrop js-award-lightbox-dismiss" aria-hidden="true"></div>
+      <div class="award-lightbox-shell">
+        <button type="button" class="award-lightbox-close js-award-lightbox-close" aria-label="Close enlarged image">
+          <span aria-hidden="true">×</span>
+        </button>
+        <img class="award-lightbox-img" alt="" width="1600" height="1000" decoding="async" />
+      </div>
+    </div>
+{% endblock %}

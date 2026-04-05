@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Privacy Policy — GrowthX Estates{% endblock %}
+{% block content %}
+  <main class="page-main resources-doc-page">
+    {% include "partials/page_decor_resources.html" %}
+    <section class="section resources-doc-hero">
+      <div class="section-inner">
+        <nav class="props-breadcrumbs reveal" aria-label="Breadcrumb">
+          <a href="{% url 'index' %}">Home</a>
+          <span class="props-bc-sep" aria-hidden="true">/</span>
+          <span>Privacy Policy</span>
+        </nav>
+        <p class="eyebrow reveal">LEGAL</p>
+        <h1 class="section-title reveal">Privacy Policy</h1>
+        <p class="resources-doc-lede reveal">
+          How GrowthX Estates collects, uses, and protects information when you use this website.
+        </p>
+        <p class="resources-doc-updated reveal">Last updated: April 5, 2026</p>
+      </div>
+    </section>
+    <section class="section resources-doc-body">
+      <div class="section-inner">
+        <div class="resources-doc-prose reveal">
+          <h2>Information we collect</h2>
+          <p>
+            When you submit an enquiry form, we collect the details you provide (such as name, phone number, and message).
+            We may also receive standard technical data from your browser (for example IP address and device type) through
+            our hosting and security tools.
+          </p>
+          <h2>How we use information</h2>
+          <p>
+            We use enquiry information to respond to you, follow up on properties or services you asked about, and improve
+            how we serve clients. We do not sell your personal information.
+          </p>
+          <h2>Cookies and similar technologies</h2>
+          <p>
+            We may use cookies or similar technologies needed for the site to function securely (for example session or
+            CSRF protection). You can control cookies through your browser settings.
+          </p>
+          <h2>Retention</h2>
+          <p>
+            We keep enquiry records only as long as needed for the purposes above or as required by law.
+          </p>
+          <h2>Your choices</h2>
+          <p>
+            You may contact us to ask what data we hold about you or to request correction or deletion where applicable,
+            subject to legal or contractual obligations.
+          </p>
+          <h2>Contact</h2>
+          <p>
+            Questions about this policy:
+            <a href="mailto:hello@growthestates.com">hello@growthestates.com</a>
+            or via our <a href="{% url 'contact' %}">contact page</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}

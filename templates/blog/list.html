@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Blog — GrowthX Estates{% endblock %}
+{% block content %}
+    <main class="page-main blog-page">
+      {% include "partials/page_decor_blog.html" %}
+      <section class="section blog-hero">
+        <div class="section-inner blog-hero-inner">
+          <p class="eyebrow reveal">INSIGHTS</p>
+          <h1 class="section-title reveal">Journal</h1>
+          <p class="blog-intro reveal">Market perspective, lifestyle, and stories from luxury real estate.</p>
+        </div>
+      </section>
+
+      <section class="section blog-list-section">
+        <div class="section-inner">
+          {% if posts %}
+            <div class="blog-grid">
+              {% for post in posts %}
+                <article class="blog-card reveal">
+                  <a href="{{ post.get_absolute_url }}" class="blog-card-link">
+                    {% if post.featured_image %}
+                      <div class="blog-card-image">
+                        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" width="800" height="500" loading="lazy" />
+                      </div>
+                    {% elif post.featured_image_url %}
+                      <div class="blog-card-image">
+                        <img src="{{ post.featured_image_url }}" alt="{{ post.title }}" width="800" height="500" loading="lazy" />
+                      </div>
+                    {% endif %}
+                    <div class="blog-card-body">
+                      <time class="blog-meta" datetime="{{ post.published_at|date:'c' }}">{{ post.published_at|date:"F j, Y" }}</time>
+                      <h2 class="blog-card-title">{{ post.title }}</h2>
+                      {% if post.excerpt %}
+                        <p class="blog-card-excerpt">{{ post.excerpt|truncatewords:28 }}</p>
+                      {% else %}
+                        <p class="blog-card-excerpt">{{ post.body|striptags|truncatewords:28 }}</p>
+                      {% endif %}
+                      <span class="blog-read-more">Read article →</span>
+                    </div>
+                  </a>
+                </article>
+              {% endfor %}
+            </div>
+
+            {% if is_paginated %}
+              <nav class="blog-pagination" aria-label="Blog pagination">
+                {% if page_obj.has_previous %}
+                  <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline">Newer</a>
+                {% endif %}
+                <span class="blog-page-status">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+                {% if page_obj.has_next %}
+                  <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline">Older</a>
+                {% endif %}
+              </nav>
+            {% endif %}
+          {% else %}
+            <p class="blog-empty">No articles yet. Check back soon.</p>
+          {% endif %}
+        </div>
+      </section>
+    </main>
+{% endblock %}

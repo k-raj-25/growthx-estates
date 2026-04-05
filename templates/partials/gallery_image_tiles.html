@@ -1,0 +1,25 @@
+{% if items %}
+  <div class="awards-grid awards-grid--images-only">
+    {% for item in items %}
+      <figure class="award-card award-card--image-only reveal">
+        <button
+          type="button"
+          class="award-card-trigger js-award-lightbox-open"
+          aria-label="Enlarge: {{ item.title }}"
+          data-lightbox-src="{% if item.image %}{{ item.image.url }}{% else %}{{ item.image_url }}{% endif %}"
+          data-lightbox-alt="{{ item.title }}"
+        >
+          <span class="award-card-image">
+            {% if item.image %}
+              <img src="{{ item.image.url }}" alt="" width="640" height="400" loading="lazy" />
+            {% else %}
+              <img src="{{ item.image_url }}" alt="" width="640" height="400" loading="lazy" />
+            {% endif %}
+          </span>
+        </button>
+      </figure>
+    {% endfor %}
+  </div>
+{% elif empty_message %}
+  <p class="awards-empty">{{ empty_message }}</p>
+{% endif %}

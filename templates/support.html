@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Support — GrowthX Estates{% endblock %}
+{% block content %}
+  <main class="page-main resources-doc-page">
+    {% include "partials/page_decor_resources.html" %}
+    <section class="section resources-doc-hero">
+      <div class="section-inner">
+        <nav class="props-breadcrumbs reveal" aria-label="Breadcrumb">
+          <a href="{% url 'index' %}">Home</a>
+          <span class="props-bc-sep" aria-hidden="true">/</span>
+          <span>Support</span>
+        </nav>
+        <p class="eyebrow reveal">HELP CENTER</p>
+        <h1 class="section-title reveal">Support</h1>
+        <p class="resources-doc-lede reveal">
+          Answers to common questions and the fastest ways to reach our team.
+        </p>
+      </div>
+    </section>
+    <section class="section resources-doc-body">
+      <div class="section-inner">
+        <div class="resources-doc-prose reveal">
+          <h2>Contact us</h2>
+          <p>
+            For tours, listings, or general questions, use our
+            <a href="{% url 'contact' %}">contact page</a>
+            or call <strong>+1 (555) 012-3456</strong>. We typically respond within one business day.
+          </p>
+          <h2>Office hours</h2>
+          <p>Monday–Friday, 9:00 a.m.–6:00 p.m. Eastern. Weekend and evening appointments are available by request.</p>
+          <h2>Before you write</h2>
+          <ul class="resources-doc-list">
+            <li><strong>Property ID or address</strong> — helps us pull the right file immediately.</li>
+            <li><strong>Your timeline</strong> — buying, selling, or exploring over the next few months.</li>
+            <li><strong>Preferred contact</strong> — phone, email, or a scheduled call.</li>
+          </ul>
+          <p class="resources-doc-muted">
+            This site is for information and enquiries only. Nothing here is legal, tax, or investment advice.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}

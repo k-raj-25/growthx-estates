@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Terms of Use — GrowthX Estates{% endblock %}
+{% block content %}
+  <main class="page-main resources-doc-page">
+    {% include "partials/page_decor_resources.html" %}
+    <section class="section resources-doc-hero">
+      <div class="section-inner">
+        <nav class="props-breadcrumbs reveal" aria-label="Breadcrumb">
+          <a href="{% url 'index' %}">Home</a>
+          <span class="props-bc-sep" aria-hidden="true">/</span>
+          <span>Terms</span>
+        </nav>
+        <p class="eyebrow reveal">LEGAL</p>
+        <h1 class="section-title reveal">Terms of use</h1>
+        <p class="resources-doc-lede reveal">
+          Rules for using the GrowthX Estates website. By using this site, you agree to these terms.
+        </p>
+        <p class="resources-doc-updated reveal">Last updated: April 5, 2026</p>
+      </div>
+    </section>
+    <section class="section resources-doc-body">
+      <div class="section-inner">
+        <div class="resources-doc-prose reveal">
+          <h2>Use of the site</h2>
+          <p>
+            This website is provided for general information about GrowthX Estates and our services. Listings, imagery, and
+            descriptions are subject to change and may not reflect real-time availability. Nothing on this site is an
+            offer to sell or lease real property where prohibited by law.
+          </p>
+          <h2>No professional advice</h2>
+          <p>
+            Content on this site is not legal, tax, financial, or investment advice. You should consult qualified
+            professionals for decisions related to real estate transactions.
+          </p>
+          <h2>Intellectual property</h2>
+          <p>
+            Text, graphics, logos, and layout on this site are owned by GrowthX Estates or our licensors and may not be
+            copied or reused without permission, except for personal, non-commercial viewing.
+          </p>
+          <h2>Limitation of liability</h2>
+          <p>
+            To the fullest extent permitted by law, GrowthX Estates is not liable for any indirect or consequential
+            damages arising from your use of this site or reliance on its content. The site is provided “as is.”
+          </p>
+          <h2>Links</h2>
+          <p>
+            Third-party sites linked from this website are not under our control. We are not responsible for their content
+            or practices.
+          </p>
+          <h2>Changes</h2>
+          <p>
+            We may update these terms from time to time. Continued use of the site after changes means you accept the
+            revised terms.
+          </p>
+          <h2>Contact</h2>
+          <p>
+            For questions about these terms:
+            <a href="mailto:hello@growthestates.com">hello@growthestates.com</a>
+            or our <a href="{% url 'contact' %}">contact page</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}

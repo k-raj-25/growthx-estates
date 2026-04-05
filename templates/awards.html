@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Awards &amp; recognitions — GrowthX Estates{% endblock %}
+{% block content %}
+    <main class="page-main awards-page">
+      {% include "partials/page_decor_awards.html" %}
+      <section class="section awards-hero">
+        <div class="section-inner awards-hero-inner">
+          <p class="eyebrow reveal">RECOGNITION</p>
+          <h1 class="section-title reveal">Awards &amp; recognitions</h1>
+          <p class="awards-intro reveal">
+            Milestones and honors that reflect our commitment to clients, craft, and community.
+          </p>
+        </div>
+      </section>
+
+      <section class="section awards-list-section">
+        <div class="section-inner">
+          {% if awards %}
+            <div class="awards-grid awards-grid--images-only">
+              {% for item in awards %}
+                <figure class="award-card award-card--image-only reveal">
+                  <button
+                    type="button"
+                    class="award-card-trigger js-award-lightbox-open"
+                    aria-label="Enlarge: {{ item.title }}"
+                    data-lightbox-src="{% if item.image %}{{ item.image.url }}{% else %}{{ item.image_url }}{% endif %}"
+                    data-lightbox-alt="{{ item.title }}"
+                  >
+                    <span class="award-card-image">
+                      {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="" width="640" height="400" loading="lazy" />
+                      {% else %}
+                        <img src="{{ item.image_url }}" alt="" width="640" height="400" loading="lazy" />
+                      {% endif %}
+                    </span>
+                  </button>
+                </figure>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p class="awards-empty">No public recognitions yet. Add entries with images in the admin under “Awards &amp; recognitions” and mark them as published.</p>
+          {% endif %}
+        </div>
+      </section>
+    </main>
+
+    <div
+      class="award-lightbox"
+      id="award-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Enlarged award image"
+      hidden
+    >
+      <div class="award-lightbox-backdrop js-award-lightbox-dismiss" aria-hidden="true"></div>
+      <div class="award-lightbox-shell">
+        <button type="button" class="award-lightbox-close js-award-lightbox-close" aria-label="Close enlarged image">
+          <span aria-hidden="true">×</span>
+        </button>
+        <img class="award-lightbox-img" alt="" width="1600" height="1000" decoding="async" />
+      </div>
+    </div>
+{% endblock %}

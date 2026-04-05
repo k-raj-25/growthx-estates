@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Contact Us — GrowthX Estates{% endblock %}
+{% block content %}
+  <main class="page-main contact-page">
+    {% include "partials/page_decor_contact.html" %}
+    <section class="section contact-hero-section">
+      <div class="section-inner">
+        <nav class="props-breadcrumbs reveal" aria-label="Breadcrumb">
+          <a href="{% url 'index' %}">Home</a>
+          <span class="props-bc-sep" aria-hidden="true">/</span>
+          <span>Contact</span>
+        </nav>
+        <p class="eyebrow reveal">GET IN TOUCH</p>
+        <h1 class="section-title reveal">Contact us</h1>
+        <p class="contact-hero-lede reveal">
+          Tell us what you are looking for—whether it is a private tour, a market read, or a tailored shortlist.
+          We read every message and reply as soon as we can.
+        </p>
+      </div>
+    </section>
+
+    <section class="section contact-body-section">
+      <div class="section-inner contact-split">
+        <div class="contact-aside reveal">
+          <h2 class="contact-aside-title">Visit or call</h2>
+          <p class="contact-aside-text">
+            Our team is available by appointment. Reach out by phone or email, or send the form and we will follow up.
+          </p>
+          <ul class="contact-list contact-page-details">
+            <li>
+              <span class="contact-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <span>500 Fifth Avenue, New York, NY</span>
+            </li>
+            <li>
+              <span class="contact-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </span>
+              <span>+1 (555) 012-3456</span>
+            </li>
+            <li>
+              <span class="contact-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg>
+              </span>
+              <span>hello@growthestates.com</span>
+            </li>
+          </ul>
+          <div class="contact-map-frame">
+            <iframe
+              title="Map — 500 Fifth Avenue, New York, NY"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-73.9825%2C40.7508%2C-73.9755%2C40.7558&amp;layer=mapnik&amp;marker=40.7532%2C-73.9790"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="contact-form-card reveal">
+          <h2 class="contact-form-title">Send a message</h2>
+          <p class="contact-form-sub">Name and phone are required. A short note helps us prepare.</p>
+          <form class="contact-page-form js-enquiry-form" id="contact-page-form" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="enquiry_type" value="contact" />
+            <label class="enquiry-label">
+              <span class="enquiry-label-text">Name</span>
+              <input type="text" name="name" class="enquiry-input" required autocomplete="name" maxlength="120" />
+              <span class="enquiry-field-error" data-error-for="name" hidden></span>
+            </label>
+            <label class="enquiry-label">
+              <span class="enquiry-label-text">Phone (10 digits)</span>
+              <input type="tel" name="phone" class="enquiry-input" required autocomplete="tel" inputmode="numeric" maxlength="20" />
+              <span class="enquiry-field-error" data-error-for="phone" hidden></span>
+            </label>
+            <label class="enquiry-label">
+              <span class="enquiry-label-text">Message <span class="enquiry-optional">(optional)</span></span>
+              <textarea name="message" class="enquiry-input enquiry-textarea" rows="4" maxlength="2000"></textarea>
+              <span class="enquiry-field-error" data-error-for="message" hidden></span>
+            </label>
+            <button type="submit" class="btn btn-primary contact-page-submit">Send message</button>
+            <p class="enquiry-form-status" data-enquiry-status hidden role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
