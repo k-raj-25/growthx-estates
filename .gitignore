@@ -3,8 +3,9 @@
 venv/
 __pycache__/
 *.py[cod]
+# Ship db.sqlite3 with deploy (Render); ignore other sqlite files
 *.sqlite3
-db.sqlite3
+!db.sqlite3
 .env
 media/
 staticfiles/
