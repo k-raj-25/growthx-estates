@@ -4679,3 +4679,47 @@ button.careers-opening-card:focus-visible {
   border-bottom-color: rgba(255, 255, 255, 0.25);
 }
 
+/* WhatsApp (wa.me) */
+.whatsapp-fab {
+  position: fixed;
+  right: max(1.25rem, env(safe-area-inset-right, 0px));
+  bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.whatsapp-fab:hover {
+  background: #20bd5a;
+  transform: scale(1.06);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-fab:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.footer .contact-icon--whatsapp {
+  color: #25d366;
+}
+
+.footer-whatsapp-link {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-whatsapp-link:hover {
+  color: #ffe14d;
+}
+

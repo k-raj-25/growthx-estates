@@ -148,6 +148,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'website.context_processors.whatsapp',
             ],
         },
     },
@@ -246,3 +247,8 @@ elif os.environ.get('RENDER_EXTERNAL_HOSTNAME'):
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# WhatsApp click-to-chat: full international number with country code, no leading 0
+# (e.g. US: 15551234567). Non-digits in WHATSAPP_PHONE_NUMBER are stripped.
+WHATSAPP_PHONE_NUMBER = os.environ.get('WHATSAPP_PHONE_NUMBER', '').strip()
+WHATSAPP_PREFILL_MESSAGE = os.environ.get('WHATSAPP_PREFILL_MESSAGE', 'Hi, I\'m interested in a property on your site.').strip()
