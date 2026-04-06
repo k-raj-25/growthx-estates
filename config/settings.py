@@ -41,6 +41,11 @@ for h in os.environ.get('ALLOWED_HOSTS', '').split(','):
     if h and h not in ALLOWED_HOSTS:
         ALLOWED_HOSTS.append(h)
 
+# Trust proxy headers on Render so request host/scheme match PUBLIC_URL (avoids subtle URL/CSRF issues).
+if os.environ.get('RENDER'):
+    USE_X_FORWARDED_HOST = True
+    USE_X_FORWARDED_PORT = True
+
 
 # Application definition
 
@@ -246,3 +251,22 @@ elif os.environ.get('RENDER_EXTERNAL_HOSTNAME'):
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Log request exceptions (including tracebacks) to stdout so Render “Logs” shows the real error.
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+    },
+}

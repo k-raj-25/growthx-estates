@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin import DateFieldListFilter
+from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Count, Q
 
 from .models import (
@@ -23,8 +24,10 @@ class CityAdmin(admin.ModelAdmin):
     ordering = ("sort_order", "name")
 
     def get_queryset(self, request):
+        # Avoid Count(..., distinct=True) here: it can error on PostgreSQL for this reverse-FK shape;
+        # one city → many properties, so a plain filtered Count is correct.
         return super().get_queryset(request).annotate(
-            _listing_count=Count("properties", filter=Q(properties__is_published=True), distinct=True)
+            _listing_count=Count("properties", filter=Q(properties__is_published=True))
         )
 
     @admin.display(description="Listings", ordering="_listing_count")
@@ -38,7 +41,7 @@ class PropertyAdmin(admin.ModelAdmin):
         "name",
         "slug",
         "project_type",
-        "city",
+        "city_display",
         "location",
         "status",
         "rating",
@@ -51,7 +54,16 @@ class PropertyAdmin(admin.ModelAdmin):
     search_fields = ("name", "location", "rera_id", "developer_name", "slug")
     autocomplete_fields = ("city",)
     prepopulated_fields = {"slug": ("name",)}
-    ordering = ("sort_order", "name")
+    ordering = ("sort_order", "name", "pk")
+
+    @admin.display(description="City", ordering="city__name")
+    def city_display(self, obj):
+        if not obj.city_id:
+            return "—"
+        try:
+            return obj.city.name
+        except ObjectDoesNotExist:
+            return f"— (missing city id={obj.city_id})"
     fieldsets = (
         (
             None,
@@ -105,7 +117,7 @@ class BlogPostAdmin(admin.ModelAdmin):
     list_display = (
         "title",
         "slug",
-        "author",
+        "author_display",
         "is_published",
         "published_at",
         "updated_at",
@@ -172,6 +184,15 @@ class BlogPostAdmin(admin.ModelAdmin):
                 ),
             )
         return super().get_fieldsets(request, obj)
+
+    @admin.display(description="Author", ordering="author__username")
+    def author_display(self, obj):
+        if not obj.author_id:
+            return "—"
+        try:
+            return obj.author.get_username()
+        except ObjectDoesNotExist:
+            return f"— (missing user id={obj.author_id})"
 
     def save_model(self, request, obj, form, change):
         if not obj.author_id and request.user.is_authenticated:
@@ -329,7 +350,7 @@ class SiteEnquiryAdmin(admin.ModelAdmin):
         "enquiry_type",
         "name",
         "phone",
-        "property",
+        "property_display",
         "message_preview",
     )
     list_filter = (
@@ -341,6 +362,15 @@ class SiteEnquiryAdmin(admin.ModelAdmin):
     autocomplete_fields = ("property",)
     date_hierarchy = "created_at"
     ordering = ("-created_at",)
+
+    @admin.display(description="Property", ordering="property__name")
+    def property_display(self, obj):
+        if not obj.property_id:
+            return "—"
+        try:
+            return obj.property.name
+        except ObjectDoesNotExist:
+            return f"— (missing property id={obj.property_id})"
 
     @admin.display(description="Message")
     def message_preview(self, obj):

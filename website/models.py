@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
@@ -140,10 +140,20 @@ class Property(models.Model):
     def get_absolute_url(self):
         return reverse("property_detail", kwargs={"slug": self.slug})
 
+    def get_city_name(self):
+        """Name of linked City, or None if unset or city row is missing (orphan FK)."""
+        if not self.city_id:
+            return None
+        try:
+            return self.city.name
+        except ObjectDoesNotExist:
+            return None
+
     @property
     def display_location(self) -> str:
-        if self.city_id:
-            return self.city.name
+        name = self.get_city_name()
+        if name is not None:
+            return name
         return self.location
 
     @property
@@ -160,8 +170,9 @@ class Property(models.Model):
             " ".join(self.amenities) if isinstance(self.amenities, list) else "",
             self.description,
         ]
-        if self.city_id:
-            blob_parts.insert(1, self.city.name)
+        cname = self.get_city_name()
+        if cname:
+            blob_parts.insert(1, cname)
         return " ".join(str(p) for p in blob_parts if p).lower()
 
     def clean(self):
@@ -247,7 +258,12 @@ class SiteEnquiry(models.Model):
 
     def __str__(self):
         label = self.get_enquiry_type_display()
-        prop = f" — {self.property.name}" if self.property_id else ""
+        prop = ""
+        if self.property_id:
+            try:
+                prop = f" — {self.property.name}"
+            except ObjectDoesNotExist:
+                prop = f" — (missing property id={self.property_id})"
         return f"{label}: {self.name}{prop} ({self.phone})"
 
 

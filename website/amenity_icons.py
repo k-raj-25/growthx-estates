@@ -1,5 +1,7 @@
 """Map free-text amenity labels to icon keys for templates."""
 
+from typing import Optional
+
 # First matching substring wins; keep more specific phrases before generic ones.
 _AMENITY_RULES: tuple[tuple[str, str], ...] = (
     ("infinity pool", "pool"),
@@ -59,8 +61,10 @@ _AMENITY_RULES: tuple[tuple[str, str], ...] = (
 )
 
 
-def amenity_icon_key(label: str) -> str:
-    t = label.lower()
+def amenity_icon_key(label: Optional[str]) -> str:
+    if label is None:
+        return "default"
+    t = str(label).lower()
     for needle, key in _AMENITY_RULES:
         if needle in t:
             return key

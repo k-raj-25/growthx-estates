@@ -19,7 +19,7 @@
           <div class="pd-hero-main">
             <p class="eyebrow">PROJECT</p>
             <h1 class="pd-title">{{ property.name }}</h1>
-            <p class="pd-location">{{ property.display_location }}{% if property.city and property.location %} · {{ property.location }}{% endif %}</p>
+            <p class="pd-location">{{ property.display_location }}{% if property.get_city_name and property.location %} · {{ property.location }}{% endif %}</p>
             <div class="pd-hero-chips">
               <span class="property-type-badge property-type-badge--{{ property.project_type }} property-type-badge--lg">{{ property.get_project_type_display }}</span>
               <span class="property-status-badge property-status-badge--{{ property.status|slugify }}">{{ property.status }}</span>
