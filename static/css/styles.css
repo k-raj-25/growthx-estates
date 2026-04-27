@@ -2306,7 +2306,7 @@ a {
 /* Careers */
 .careers-page.page-main {
   padding-top: clamp(5.75rem, 12vw, 7.5rem);
-  padding-bottom: clamp(1.5rem, 4vw, 3rem);
+  padding-bottom: 0;
 }
 
 .careers-page .careers-hero.section {
@@ -3383,7 +3383,7 @@ button.careers-opening-card:focus-visible {
 /* About */
 .about-page.page-main {
   padding-top: clamp(5.75rem, 12vw, 7.5rem);
-  padding-bottom: clamp(1.5rem, 4vw, 3rem);
+  padding-bottom: 0;
 }
 
 .about-page .about-hero.section {
@@ -3786,6 +3786,16 @@ button.careers-opening-card:focus-visible {
   padding-bottom: clamp(2.5rem, 6vw, 4rem);
 }
 
+/* Browse page: less air under fixed header + tighter filter → grid gap */
+.properties-page.page-main {
+  padding-top: clamp(4.85rem, 10vw, 6.25rem);
+}
+
+.properties-page .properties-hero-section.section {
+  padding-top: clamp(0.5rem, 1.5vw, 1rem);
+  padding-bottom: clamp(0.85rem, 2.2vw, 1.35rem);
+}
+
 /* Property detail: keep flex/grid/text from forcing horizontal scroll */
 .property-detail-page .section-inner {
   min-width: 0;
@@ -4139,7 +4149,7 @@ button.careers-opening-card:focus-visible {
 }
 
 .properties-results-section.section {
-  padding-top: clamp(1rem, 3vw, 1.75rem);
+  padding-top: clamp(1.8rem, 4.8vw, 3rem);
 }
 
 .properties-results-grid {
