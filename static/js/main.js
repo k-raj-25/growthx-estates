@@ -2,7 +2,6 @@
   const header = document.querySelector(".header");
   const menuToggle = document.querySelector(".menu-toggle");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   if (menuToggle && header) {
     const backdrop = header.querySelector(".nav-backdrop");
     const drawer = header.querySelector(".nav-drawer");
