@@ -17,7 +17,22 @@ from .models import (
 
 
 def index(request):
-    return render(request, "index.html")
+    cities_with_listings = (
+        City.objects.annotate(
+            listing_count=Count("properties", filter=Q(properties__is_published=True))
+        )
+        .filter(listing_count__gt=0)
+        .order_by("sort_order", "name")
+    )
+    return render(
+        request,
+        "index.html",
+        {
+            "cities_with_listings": cities_with_listings,
+            "status_choices": Property.STATUS_CHOICES,
+            "project_type_choices": Property.PROJECT_TYPE_CHOICES,
+        },
+    )
 
 
 def about(request):

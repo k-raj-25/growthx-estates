@@ -4,32 +4,113 @@
 {% block content %}
     <section class="hero">
       <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <h1 class="hero-title">
-          <span class="hero-title-line hero-animate" style="--hero-delay: 0.1s">Redefining</span>
-          <span class="hero-title-line hero-title-accent hero-animate" style="--hero-delay: 0.28s">Luxury Living</span>
-        </h1>
-        <p class="hero-sub hero-animate" style="--hero-delay: 0.45s">
-          We curate exceptional properties and deliver a seamless experience from first tour to closing.
-          Discover homes that match your ambition—crafted spaces, prime locations, and world-class service.
-        </p>
-        <div class="hero-actions hero-animate" style="--hero-delay: 0.58s">
-          <a href="{% url 'properties_list' %}" class="btn btn-primary">Explore Properties</a>
-          <a href="{% url 'about' %}" class="btn btn-outline">About Us</a>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-shell">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero-eyebrow hero-animate" style="--hero-delay: 0.08s">
+              <span class="hero-eyebrow-line" aria-hidden="true"></span>
+              <span>GrowthX Estates</span>
+            </p>
+            <h1 class="hero-title">
+              <span class="hero-title-line hero-animate" style="--hero-delay: 0.14s">Redefining</span>
+              <span class="hero-title-line hero-title-accent hero-animate" style="--hero-delay: 0.26s">Luxury Living</span>
+            </h1>
+            <p class="hero-sub hero-animate" style="--hero-delay: 0.4s">
+              Exceptional properties and a seamless journey from first tour to closing—prime locations, crafted
+              spaces, and advisory service at every step.
+            </p>
+            <form
+              class="hero-filters hero-animate"
+              style="--hero-delay: 0.5s"
+              method="get"
+              action="{% url 'properties_list' %}"
+              aria-label="Search and filter properties"
+            >
+              <div class="hero-search-row">
+                <label class="hero-search-wrap">
+                  <span class="visually-hidden">Search properties</span>
+                  <svg class="hero-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="M21 21l-4.2-4.2" />
+                  </svg>
+                  <input
+                    type="search"
+                    name="q"
+                    id="hero-property-search"
+                    class="hero-search-input"
+                    placeholder="Search area, project, developer…"
+                    autocomplete="off"
+                  />
+                </label>
+                <button type="submit" class="btn btn-primary hero-search-submit">Search</button>
+              </div>
+              <div class="hero-filters-row">
+                {% if cities_with_listings %}
+                  <label class="hero-filter-field">
+                    <span class="visually-hidden">Location</span>
+                    <select name="city" id="hero-filter-city" class="hero-filter-select" aria-label="Filter by location">
+                      <option value="">All locations</option>
+                      {% for c in cities_with_listings %}
+                        <option value="{{ c.slug }}">{{ c.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </label>
+                {% endif %}
+                <label class="hero-filter-field">
+                  <span class="visually-hidden">Project type</span>
+                  <select name="project_type" id="hero-filter-type" class="hero-filter-select" aria-label="Filter by project type">
+                    <option value="">All types</option>
+                    {% for val, label in project_type_choices %}
+                      <option value="{{ val }}">{{ label }}</option>
+                    {% endfor %}
+                  </select>
+                </label>
+                <label class="hero-filter-field">
+                  <span class="visually-hidden">Status</span>
+                  <select name="status" id="hero-filter-status" class="hero-filter-select" aria-label="Filter by status">
+                    <option value="">Any status</option>
+                    {% for val, label in status_choices %}
+                      <option value="{{ val }}">{{ label }}</option>
+                    {% endfor %}
+                  </select>
+                </label>
+              </div>
+            </form>
+          </div>
+          <aside class="hero-aside hero-animate" style="--hero-delay: 0.48s" aria-label="Firm highlights">
+            <div class="hero-stats-card">
+              <div class="hero-stats-card-corner hero-stats-card-corner--tl" aria-hidden="true"></div>
+              <div class="hero-stats-card-corner hero-stats-card-corner--br" aria-hidden="true"></div>
+              <p class="hero-stats-kicker">By the numbers</p>
+              <div class="hero-stats">
+                <div class="stat">
+                  <span class="stat-num js-count" data-target="2500" data-suffix="+">0</span>
+                  <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-num js-count" data-target="1200" data-suffix="+">0</span>
+                  <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-num js-count" data-target="15" data-suffix="+">0</span>
+                  <span class="stat-label">Years</span>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
-        <div class="hero-stats hero-animate" style="--hero-delay: 0.72s">
-          <div class="stat">
-            <span class="stat-num js-count" data-target="2500" data-suffix="+">0</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num js-count" data-target="1200" data-suffix="+">0</span>
-            <span class="stat-label">Happy Clients</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num js-count" data-target="15" data-suffix="+">0</span>
-            <span class="stat-label">Years</span>
-          </div>
+        <div class="hero-scroll-row hero-animate" style="--hero-delay: 0.65s">
+          <a href="#properties" class="hero-scroll">
+            <span class="hero-scroll-inner">
+              <span class="hero-scroll-text">Featured properties</span>
+              <span class="hero-scroll-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M12 5v14M5 12l7 7 7-7" />
+                </svg>
+              </span>
+            </span>
+          </a>
         </div>
       </div>
     </section>
