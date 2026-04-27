@@ -149,6 +149,18 @@ a {
   object-fit: contain;
 }
 
+.header .logo-img {
+  height: clamp(1.95rem, 4vw, 2.4rem);
+  max-width: min(280px, 54vw);
+}
+
+@media (min-width: 1024px) {
+  .header .logo-img {
+    height: clamp(2.2rem, 3.5vw, 2.7rem);
+    max-width: min(300px, 50vw);
+  }
+}
+
 .footer-logo.logo .logo-img {
   height: clamp(1.45rem, 3vw, 1.9rem);
   max-width: min(220px, 70vw);
@@ -870,7 +882,7 @@ a {
   border-radius: var(--radius-card);
   overflow: hidden;
   background: var(--forest);
-  border: 1px solid rgba(26, 26, 26, 0.12);
+  border: none;
   min-height: 0;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
 }
