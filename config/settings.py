@@ -273,5 +273,5 @@ LOGGING = {
 }
 # WhatsApp click-to-chat: full international number with country code, no leading 0
 # (e.g. US: 15551234567). Non-digits in WHATSAPP_PHONE_NUMBER are stripped.
-WHATSAPP_PHONE_NUMBER = os.environ.get('WHATSAPP_PHONE_NUMBER', '').strip()
+WHATSAPP_PHONE_NUMBER = os.environ.get('WHATSAPP_PHONE_NUMBER', '919899791945').strip()
 WHATSAPP_PREFILL_MESSAGE = os.environ.get('WHATSAPP_PREFILL_MESSAGE', 'Hi, I\'m interested in a property on your site.').strip()

@@ -44,6 +44,11 @@ html {
     background-attachment: scroll;
   }
 
+  .section.properties,
+  .section.testimonials {
+    background-attachment: scroll;
+  }
+
   *,
   *::before,
   *::after {
@@ -795,12 +800,22 @@ a {
   padding: clamp(4rem, 8vw, 6rem) clamp(1.25rem, 4vw, 3.5rem);
 }
 
-.section.properties {
-  background: var(--bg-alt);
+.section.properties,
+.section.testimonials {
+  position: relative;
+  /* Square grid lines (match body) — same fill + fixed attachment so no seam between sections */
+  background-color: var(--bg-alt);
+  background-image: linear-gradient(var(--bg-pattern-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-pattern-line) 1px, transparent 1px);
+  background-size: var(--bg-pattern-size) var(--bg-pattern-size);
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
-.section.testimonials {
-  background: #ffffff;
+/* Ready to find your dream home — primary brand (solid) */
+.section.cta-banner {
+  position: relative;
+  background: var(--forest);
 }
 
 /* Dark band + light cards (reference: services on black) */
