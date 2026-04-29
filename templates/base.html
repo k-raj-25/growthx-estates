@@ -50,8 +50,10 @@
             </button>
             <ul class="nav-dropdown-menu" id="nav-growthx-menu" role="list">
               <li><a href="{% url 'blog_list' %}">Blog</a></li>
+              {% comment %} Hidden temporarily — restore urlpatterns in website/urls.py when bringing Awards & News back
               <li><a href="{% url 'awards_recognitions' %}">Awards</a></li>
               <li><a href="{% url 'news_updates' %}">News</a></li>
+              {% endcomment %}
               <li><a href="{% url 'careers' %}">Careers</a></li>
             </ul>
           </div>
@@ -105,8 +107,10 @@
             <ul>
               <li><a href="{% url 'about' %}">About</a></li>
               <li><a href="{% url 'careers' %}">Careers</a></li>
+              {% comment %} Hidden temporarily — restore urlpatterns in website/urls.py when bringing Awards & News back
               <li><a href="{% url 'awards_recognitions' %}">Awards &amp; recognitions</a></li>
               <li><a href="{% url 'news_updates' %}">News &amp; updates</a></li>
+              {% endcomment %}
               <li><a href="{% url 'properties_list' %}">Properties</a></li>
               <li><a href="{% url 'index' %}#services">Services</a></li>
               <li><a href="{% url 'about' %}#our-team">Team</a></li>
@@ -157,7 +161,7 @@
         </div>
         <div class="footer-bottom">
           <p>© 2026 GrowthX Estates. All rights reserved.</p>
-          <p>Designed by <u><a href="https://www.linkedin.com/in/kr25/">Kamal Rajput</a></u></p>
+          <p>Designed by <u><a class="footer-primary-text" href="https://www.linkedin.com/in/kr25/">Kamal Rajput</a></u></p>
         </div>
       </div>
     </footer>

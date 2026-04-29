@@ -35,8 +35,10 @@
               <li><a href="{% url 'about' %}">About</a></li>
               <li><a href="{% url 'about' %}#our-team">Team</a></li>
               <li><a href="{% url 'careers' %}">Careers</a></li>
+              {% comment %} Hidden temporarily — restore urlpatterns in website/urls.py when bringing Awards & News back
               <li><a href="{% url 'awards_recognitions' %}">Awards &amp; recognitions</a></li>
               <li><a href="{% url 'news_updates' %}">News &amp; updates</a></li>
+              {% endcomment %}
             </ul>
           </div>
           <div class="sitemap-block">

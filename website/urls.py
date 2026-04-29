@@ -8,12 +8,13 @@ urlpatterns = [
     path("properties/", views.properties_list, name="properties_list"),
     path("properties/<slug:slug>/", views.property_detail, name="property_detail"),
     path("about/", views.about, name="about"),
-    path("awards/", views.awards_recognitions, name="awards_recognitions"),
-    path(
-        "news-updates/",
-        views.news_updates_events,
-        name="news_updates",
-    ),
+    # Hidden temporarily — uncomment together with {% comment %} blocks in base.html + sitemap.html
+    # path("awards/", views.awards_recognitions, name="awards_recognitions"),
+    # path(
+    #     "news-updates/",
+    #     views.news_updates_events,
+    #     name="news_updates",
+    # ),
     path("contact/", views.contact, name="contact"),
     path("support/", views.support, name="support"),
     path("privacy-policy/", views.privacy_policy, name="privacy_policy"),

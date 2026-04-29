@@ -1675,6 +1675,17 @@ a {
   margin: 0;
 }
 
+.footer-bottom .footer-primary-text {
+  color: var(--forest);
+  font-weight: 600;
+}
+
+.footer-bottom a.footer-primary-text:hover,
+.footer-bottom a.footer-primary-text:focus-visible {
+  color: var(--forest);
+  filter: brightness(1.08);
+}
+
 /* Blog */
 .page-main {
   position: relative;
